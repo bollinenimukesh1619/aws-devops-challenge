@@ -1,0 +1,7 @@
+apiVersion: v2
+name: hello-candidate
+description: Helm chart to deploy the Hello Candidate FastAPI service
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
+
