@@ -38,10 +38,11 @@ jobs:
           terraform_version: 1.9.5
 
       - name: Terraform init
-        run: terraform -chdir=terraform init -backend=false
+        run: terraform -chdir=infra/terraform init -backend=false
 
       - name: Terraform validate
-        run: terraform -chdir=terraform validate
+        working-directory: infra/terraform
+        run: terraform validate
 
       - name: Build Docker image
         run: docker build -t hello-candidate-ci .
