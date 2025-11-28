@@ -7,11 +7,11 @@ echo "==> Building Docker image hello-candidate"
 docker build -t hello-candidate "$ROOT_DIR"
 
 echo "==> Applying Terraform configuration"
-terraform -chdir="$ROOT_DIR/infra" init
-terraform -chdir="$ROOT_DIR/infra" apply -auto-approve
+terraform -chdir="$ROOT_DIR/terraform" init
+terraform -chdir="$ROOT_DIR/terraform" apply -auto-approve
 
 echo "==> Deploying Helm release"
-helm upgrade --install hello-candidate "$ROOT_DIR/charts/hello-candidate" -n devops-challenge
+helm upgrade --install hello-candidate "$ROOT_DIR/helm/hello-candidate" -n devops-challenge
 
 echo "All done!"
 
